@@ -16,8 +16,6 @@ RUN chmod -R 775 /var/www/*
 
     #Agregar configuracion
 COPY myconfig.nginx /etc/nginx/sites-available/
-RUN rm /etc/nginx/sites-enabled/*
-RUN ln -s /etc/nginx/sites-available/myconf.nginx /etc/nginx/sites-enabled
 COPY index.html /var/www/html/
 
 EXPOSE 80 443
