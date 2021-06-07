@@ -9,14 +9,14 @@ services:
         - 80:80
         - 443:443
     restart: always
+    hostname: agutierr.42.fr
+    domainname: agutierr.42.fr
+    networks:
+        docker-network:
+            aliases:
+                - agutierr.42.fr 
 
-  mariadb:
-    build: requirements/mariadb
-    env_file: .env
-    container_name: mariadb
-
-  wordpress:
-    depends_on:
-      - mariadb
-    build: requirements/wordpress
-    container_name: wordpress
+networks:
+    docker-network:
+        name: inception_net
+        driver: bridge

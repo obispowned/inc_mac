@@ -1,0 +1,20 @@
+server{
+		listen 443 ssl agutierr.42.fr;
+		listen [::]:443 ssl agutierr.42.fr;
+
+		ssl_certificate /etc/ssl/certs/agutierr.crt;
+		ssl_certificate /etc/ssl/private/agutierr.key
+		ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	
+		root /var/www/agutierr/html;
+	
+		index index.html index.htm index.nginx-debian.html;
+
+		server_name _;
+	
+	# server_name localhost www.localhost;
+
+		location / {
+				try_files $uri $uri/ =404;
+		}
+}
